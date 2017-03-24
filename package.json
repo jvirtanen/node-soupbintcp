@@ -1,0 +1,19 @@
+{
+  "name": "soupbintcp",
+  "version": "0.1.0",
+  "description": "NASDAQ SoupBinTCP 3.00 client and server",
+  "author": "Jussi Virtanen",
+  "license": "Apache-2.0",
+  "repository": "jvirtanen/node-soupbintcp",
+  "keywords": [
+    "finance",
+    "nasdaq",
+    "trading"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^3"
+  }
+}
