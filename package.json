@@ -1,6 +1,6 @@
 {
   "name": "soupbintcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NASDAQ SoupBinTCP 3.00 client and server",
   "author": "Jussi Virtanen",
   "license": "Apache-2.0",
