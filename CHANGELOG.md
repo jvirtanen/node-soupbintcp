@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.1.2 (2017-03-31)
+
+- Fix `end` event propagation
+
 ## 0.1.1 (2017-03-25)
 
 - Fix outbound packet header handling
