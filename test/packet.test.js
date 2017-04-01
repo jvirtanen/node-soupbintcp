@@ -27,10 +27,10 @@ describe('Login Accepted', function () {
 });
 
 describe('Login Rejected', function () {
-  const formatted = Buffer.from('J', 'ascii');
+  const formatted = Buffer.from('A', 'ascii');
 
   const parsed = {
-    rejectReasonCode: 'J',
+    rejectReasonCode: 'A',
   };
 
   it('can be formatted', function () {
