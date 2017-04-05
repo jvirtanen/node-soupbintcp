@@ -89,7 +89,7 @@ describe('Client', function () {
 
   it('can receive a Login Rejected packet', function (done) {
     const data = {
-      rejectReasonCode: 'J',
+      rejectReasonCode: 'A',
     };
 
     client.on('reject', (payload) => {
