@@ -11,11 +11,11 @@ const client = soupbintcp.createClient(4000, 'localhost', () => {
   });
 });
 
-client.on('accept', function(payload) {
+client.on('accept', (payload) => {
   client.send(Buffer.from('Hello world!', 'ascii'));
 });
 
-client.on('message', function(payload) {
+client.on('message', (payload) => {
   console.log(payload.toString('ascii'));
 
   client.logout();
