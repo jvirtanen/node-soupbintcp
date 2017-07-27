@@ -15,7 +15,10 @@ describe('Client', function () {
     client = null;
     server = null;
 
-    listener = new Server(0, '127.0.0.1');
+    listener = new Server({
+      port: 0,
+      host: '127.0.0.1',
+    });
 
     listener.on('listening', () => {
       client = new Client({
