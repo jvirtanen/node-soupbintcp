@@ -2,7 +2,7 @@
 
 const soupbintcp = require('../');
 
-const server = new soupbintcp.Server();
+const server = new soupbintcp.Server(4000);
 
 server.on('session', (session) => {
   session.on('login', (payload) => {
@@ -20,5 +20,3 @@ server.on('session', (session) => {
     session.end();
   });
 });
-
-server.listen(4000);

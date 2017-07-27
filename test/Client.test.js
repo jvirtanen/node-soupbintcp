@@ -15,17 +15,19 @@ describe('Client', function () {
     client = null;
     server = null;
 
-    listener = new Server((session) => {
-      server = session;
+    listener = new Server(0, '127.0.0.1');
 
-      if (client)
-        done();
-    });
-
-    listener.listen(0, '127.0.0.1', () => {
+    listener.on('listening', () => {
       client = new Client(listener.address().port);
 
       if (server)
+        done();
+    });
+
+    listener.on('session', (session) => {
+      server = session;
+
+      if (client)
         done();
     });
   });
