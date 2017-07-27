@@ -2,7 +2,10 @@
 
 const soupbintcp = require('../');
 
-const client = new soupbintcp.Client(4000, 'localhost');
+const client = new soupbintcp.Client({
+  port: 4000,
+  host: 'localhost'
+});
 
 client.on('connect', () => {
   client.login({

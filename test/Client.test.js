@@ -18,7 +18,9 @@ describe('Client', function () {
     listener = new Server(0, '127.0.0.1');
 
     listener.on('listening', () => {
-      client = new Client(listener.address().port);
+      client = new Client({
+        port: listener.address().port,
+      });
 
       if (server)
         done();
