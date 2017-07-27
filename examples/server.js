@@ -2,7 +2,7 @@
 
 const soupbintcp = require('../');
 
-const server = soupbintcp.createServer();
+const server = new soupbintcp.Server();
 
 server.on('session', (session) => {
   session.on('login', (payload) => {
