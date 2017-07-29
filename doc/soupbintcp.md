@@ -38,7 +38,7 @@ Emitted when a Login Rejected packet is received.
 
 ### Event: 'message'
 
-- **data** `Buffer`
+- **payload** `Buffer`
 
 Emitted when a Sequenced Data packet is received.
 
