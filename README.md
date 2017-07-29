@@ -10,6 +10,10 @@ Install SoupBinTCP:
 npm install soupbintcp
 ```
 
+## Usage
+
+See the [examples](examples).
+
 ## License
 
 Copyright 2017 Jussi Virtanen.
