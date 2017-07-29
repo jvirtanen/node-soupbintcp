@@ -12,7 +12,9 @@ npm install soupbintcp
 
 ## Usage
 
-See the [examples](examples).
+See the [examples](examples) and the [reference documentation][documentation].
+
+  [documentation]: doc/soupbintcp.md
 
 ## License
 
