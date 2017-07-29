@@ -2,9 +2,9 @@
 
 SoupBinTCP implements NASDAQ SoupBinTCP 3.00 client and server on Node.
 
-## Download
+## Install
 
-Download SoupBinTCP:
+Install SoupBinTCP:
 
 ```
 npm install soupbintcp
