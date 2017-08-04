@@ -140,7 +140,7 @@ be executed when all sessions have closed.
 
 ## Class: soupbintcp.Session
 
-This class represents a s SoupBinTCP server session and extends
+This class represents a SoupBinTCP server session and extends
 `EventEmitter`.
 
 ### Event: 'login'
