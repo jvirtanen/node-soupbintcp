@@ -1,5 +1,9 @@
 # Release Notes
 
+## 1.0.1 (2019-03-31)
+
+- Fix typo in documentation
+
 ## 0.2.0 (2017-07-29)
 
 - Add `connect` event for client
