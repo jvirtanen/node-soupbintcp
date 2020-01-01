@@ -54,7 +54,7 @@ describe('Client', function () {
     };
 
     server.on('login', (payload) => {
-      assert.deepEqual(payload, data);
+      assert.deepStrictEqual(payload, data);
       done();
     });
 
@@ -73,7 +73,7 @@ describe('Client', function () {
     const data = Buffer.from('foo', 'ascii');
 
     server.on('message', (payload) => {
-      assert.deepEqual(payload, data);
+      assert.deepStrictEqual(payload, data);
       done();
     });
 
@@ -87,7 +87,7 @@ describe('Client', function () {
     };
 
     client.on('accept', (payload) => {
-      assert.deepEqual(payload, data);
+      assert.deepStrictEqual(payload, data);
       done();
     });
 
@@ -100,7 +100,7 @@ describe('Client', function () {
     };
 
     client.on('reject', (payload) => {
-      assert.deepEqual(payload, data);
+      assert.deepStrictEqual(payload, data);
       done();
     });
 
@@ -111,7 +111,7 @@ describe('Client', function () {
     const data = Buffer.from('foo', 'ascii');
 
     client.on('message', (payload) => {
-      assert.deepEqual(payload, data);
+      assert.deepStrictEqual(payload, data);
       done();
     });
 
