@@ -13,7 +13,7 @@ describe('Login Accepted', function () {
       sequenceNumber: 1,
     };
 
-    assert.deepEqual(packet.formatLoginAccepted(parsed), formatted);
+    assert.deepStrictEqual(packet.formatLoginAccepted(parsed), formatted);
   });
 
   it('can be parsed', function () {
@@ -22,7 +22,7 @@ describe('Login Accepted', function () {
       sequenceNumber: 1,
     };
 
-    assert.deepEqual(packet.parseLoginAccepted(formatted), parsed);
+    assert.deepStrictEqual(packet.parseLoginAccepted(formatted), parsed);
   });
 });
 
@@ -34,11 +34,11 @@ describe('Login Rejected', function () {
   };
 
   it('can be formatted', function () {
-    assert.deepEqual(packet.formatLoginRejected(parsed), formatted);
+    assert.deepStrictEqual(packet.formatLoginRejected(parsed), formatted);
   });
 
   it('can be parsed', function () {
-    assert.deepEqual(packet.parseLoginRejected(formatted), parsed);
+    assert.deepStrictEqual(packet.parseLoginRejected(formatted), parsed);
   });
 });
 
@@ -53,7 +53,7 @@ describe('Login Request', function () {
       requestedSequenceNumber: 1,
     };
 
-    assert.deepEqual(packet.formatLoginRequest(parsed), formatted);
+    assert.deepStrictEqual(packet.formatLoginRequest(parsed), formatted);
   });
 
   it('can be parsed', function () {
@@ -64,6 +64,6 @@ describe('Login Request', function () {
       requestedSequenceNumber: 1,
     };
 
-    assert.deepEqual(packet.parseLoginRequest(formatted), parsed);
+    assert.deepStrictEqual(packet.parseLoginRequest(formatted), parsed);
   });
 });
