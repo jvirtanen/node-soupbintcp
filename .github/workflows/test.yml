@@ -12,6 +12,7 @@ jobs:
         node-version:
           - 14
           - 16
+          - 18
     steps:
       - name: Check out GitHub repository
         uses: actions/checkout@v2
