@@ -23,6 +23,7 @@ describe('Client', function () {
     listener.on('listening', () => {
       client = new Client({
         port: listener.address().port,
+        host: '127.0.0.1',
       });
 
       if (server)
