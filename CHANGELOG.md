@@ -1,5 +1,12 @@
 # Release Notes
 
+## 1.0.2 (2024-03-25)
+
+- Fix keep-alive handling (gwn)
+
+  Clear the keep-alive interval before invoking `socket.end()`, which
+  terminates the local half of the underlying TCP connection.
+
 ## 1.0.1 (2019-03-31)
 
 - Fix typo in documentation
