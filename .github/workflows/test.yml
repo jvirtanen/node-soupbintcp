@@ -11,6 +11,7 @@ jobs:
       matrix:
         node-version:
           - 18
+          - 20
     steps:
       - name: Check out GitHub repository
         uses: actions/checkout@v4
