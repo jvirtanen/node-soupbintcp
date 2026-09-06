@@ -24,3 +24,5 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm test
+      - name: Run type check
+        run: npm run test:types

@@ -11,14 +11,19 @@
     "trading"
   ],
   "main": "index.js",
+  "types": "./index.d.ts",
   "exports": {
-    ".": "./index.js",
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
     "CHANGELOG.md",
     "doc",
     "examples",
+    "index.d.ts",
     "index.js",
     "lib"
   ],
@@ -26,6 +31,11 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test --test-timeout=2000"
+    "test": "node --test --test-timeout=2000",
+    "test:types": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "typescript": "^5"
   }
 }
