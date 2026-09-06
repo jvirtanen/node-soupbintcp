@@ -2,6 +2,7 @@
 
 const assert = require('assert');
 const net = require('net');
+const { afterEach, beforeEach, describe, it } = require('node:test');
 
 const Connection = require('../lib/Connection');
 const packet = require('../lib/packet');
@@ -26,7 +27,7 @@ describe('Connection', function () {
   let client;
   let server;
 
-  beforeEach(function (done) {
+  beforeEach(function (t, done) {
     client = null;
     server = null;
 
@@ -47,7 +48,7 @@ describe('Connection', function () {
     });
   });
 
-  afterEach(function (done) {
+  afterEach(function (t, done) {
     listener.close(() => {
       done();
     });
@@ -55,7 +56,7 @@ describe('Connection', function () {
     client.end();
   });
 
-  it('sends a heartbeat packet', function (done) {
+  it('sends a heartbeat packet', function (t, done) {
     server.on('packet', (packetType, payload) => {
       assert.equal(packetType, packet.CLIENT_HEARTBEAT);
 
@@ -63,7 +64,7 @@ describe('Connection', function () {
     });
   });
 
-  it('handles a heartbeat timeout', function (done) {
+  it('handles a heartbeat timeout', function (t, done) {
     client.on('error', (err) => {
       assert.equal(err.message, 'Heartbeat timeout');
 
