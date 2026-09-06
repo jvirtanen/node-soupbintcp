@@ -10,6 +10,21 @@
     "nasdaq",
     "trading"
   ],
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "doc",
+    "examples",
+    "index.js",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "test": "node --test --test-timeout=2000"
   }
