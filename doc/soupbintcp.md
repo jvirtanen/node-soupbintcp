@@ -149,7 +149,7 @@ This class represents a SoupBinTCP server session and extends
   - **username** `String`
   - **password** `String`
   - **requestedSession** `String`
-  - **requestedSequenceNumber** `String`
+  - **requestedSequenceNumber** `Number`
 
 Emitted when a Login Request packet is received.
 
