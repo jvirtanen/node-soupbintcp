@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assert');
+const { afterEach, beforeEach, describe, it } = require('node:test');
 
 const Client = require('../lib/Client');
 const Server = require('../lib/Server');
@@ -11,7 +12,7 @@ describe('Client', function () {
   let client;
   let server;
 
-  beforeEach(function (done) {
+  beforeEach(function (t, done) {
     client = null;
     server = null;
 
@@ -38,7 +39,7 @@ describe('Client', function () {
     });
   });
 
-  afterEach(function (done) {
+  afterEach(function (t, done) {
     listener.close(() => {
       done();
     });
@@ -46,7 +47,7 @@ describe('Client', function () {
     client.end();
   });
 
-  it('can send a Login Request packet', function (done) {
+  it('can send a Login Request packet', function (t, done) {
     const data = {
       username: 'foo   ',
       password: 'bar       ',
@@ -62,7 +63,7 @@ describe('Client', function () {
     client.login(data);
   });
 
-  it('can send a Logout Request packet', function (done) {
+  it('can send a Logout Request packet', function (t, done) {
     server.on('logout', () => {
       done();
     });
@@ -70,7 +71,7 @@ describe('Client', function () {
     client.logout();
   });
 
-  it('can send an Unsequenced Data packet', function (done) {
+  it('can send an Unsequenced Data packet', function (t, done) {
     const data = Buffer.from('foo', 'ascii');
 
     server.on('message', (payload) => {
@@ -81,7 +82,7 @@ describe('Client', function () {
     client.send(data);
   });
 
-  it('can receive a Login Accepted packet', function (done) {
+  it('can receive a Login Accepted packet', function (t, done) {
     const data = {
       session: '          ',
       sequenceNumber: 0,
@@ -95,7 +96,7 @@ describe('Client', function () {
     server.accept(data);
   });
 
-  it('can receive a Login Rejected packet', function (done) {
+  it('can receive a Login Rejected packet', function (t, done) {
     const data = {
       rejectReasonCode: 'A',
     };
@@ -108,7 +109,7 @@ describe('Client', function () {
     server.reject(data);
   });
 
-  it('can receive a Sequenced Data packet', function (done) {
+  it('can receive a Sequenced Data packet', function (t, done) {
     const data = Buffer.from('foo', 'ascii');
 
     client.on('message', (payload) => {
@@ -119,7 +120,7 @@ describe('Client', function () {
     server.send(data);
   });
 
-  it('can receive an End of Session packet', function (done) {
+  it('can receive an End of Session packet', function (t, done) {
     client.on('ending', () => {
       done();
     });

@@ -11,9 +11,6 @@
     "trading"
   ],
   "scripts": {
-    "test": "mocha"
-  },
-  "devDependencies": {
-    "mocha": "^12"
+    "test": "node --test --test-timeout=2000"
   }
 }

@@ -1,12 +1,13 @@
 'use strict';
 
 const assert = require('assert');
+const { describe, it } = require('node:test');
 
 const Parser = require('../lib/Parser');
 const packet = require('../lib/packet');
 
 describe('Parser', function () {
-  it('parses one packet', function (done) {
+  it('parses one packet', function (t, done) {
     const data = [0x00, 0x04, 0x55, 0x66, 0x6f, 0x6f];
 
     const parser = new Parser((packetType, payload) => {
@@ -19,7 +20,7 @@ describe('Parser', function () {
     parser.parse(Buffer.from(data));
   });
 
-  it('parses multiple packets', function (done) {
+  it('parses multiple packets', function (t, done) {
     const data = [0x00, 0x04, 0x55, 0x66, 0x6f, 0x6f,
       0x00, 0x04, 0x55, 0x62, 0x61, 0x72];
 
@@ -39,7 +40,7 @@ describe('Parser', function () {
     parser.parse(Buffer.from(data));
   });
 
-  it('handles packet length fragment', function (done) {
+  it('handles packet length fragment', function (t, done) {
     const parser = new Parser((packetType, payload) =>  {
       assert.equal(packetType, packet.UNSEQUENCED_DATA);
       assert.deepStrictEqual(payload, Buffer.from([0x66, 0x6f, 0x6f]));
@@ -51,7 +52,7 @@ describe('Parser', function () {
     parser.parse(Buffer.from([0x04, 0x55, 0x66, 0x6f, 0x6f]));
   });
 
-  it('handles packet type fragment', function (done) {
+  it('handles packet type fragment', function (t, done) {
     const parser = new Parser((packetType, payload) => {
       assert.equal(packetType, packet.UNSEQUENCED_DATA);
       assert.deepStrictEqual(payload, Buffer.from([0x66, 0x6f, 0x6f]));
@@ -63,7 +64,7 @@ describe('Parser', function () {
     parser.parse(Buffer.from([0x55, 0x66, 0x6f, 0x6f]));
   });
 
-  it('handles payload fragment', function (done) {
+  it('handles payload fragment', function (t, done) {
     const parser = new Parser((packetType, payload) => {
       assert.equal(packetType, packet.UNSEQUENCED_DATA);
       assert.deepStrictEqual(payload, Buffer.from([0x66, 0x6f, 0x6f]));
@@ -75,7 +76,7 @@ describe('Parser', function () {
     parser.parse(Buffer.from([0x6f, 0x6f]));
   });
 
-  it('handles multiple fragments', function (done) {
+  it('handles multiple fragments', function (t, done) {
     const parser = new Parser((packetType, payload) => {
       assert.equal(packetType, packet.UNSEQUENCED_DATA);
       assert.deepStrictEqual(payload, Buffer.from([0x66, 0x6f, 0x6f]));
