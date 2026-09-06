@@ -11,6 +11,7 @@ This class represents a SoupBinTCP client session and extends `EventEmitter`.
 - **options** `Object`
   - **port** `Number`
   - **host** `String`
+  - Any other option allowed in [`socket.connect()`][socket-connect]
 - **callback** `Function`
 - Returns `soupbintcp.Client`
 
@@ -96,6 +97,7 @@ This class represents a SoupBinTCP server and extends `EventEmitter`.
 - **options** `Object`
   - **port** `Number`
   - **host** `String`
+  - Any other option allowed in [`server.listen()`][server-listen]
 - **callback** `Function`
 - Returns `soupbintcp.Server`
 
@@ -129,7 +131,7 @@ Emitted when an error occurs.
   - **family** `String`
   - **address** `String`
 
-Return the server address.
+Return the server address. See [`server.address()`][server-address].
 
 ### server.close([callback])
 
@@ -210,3 +212,7 @@ executed when the packet is actually written out.
 ### session.end()
 
 Close this session.
+
+  [server-address]: https://nodejs.org/docs/latest-v22.x/api/net.html#serveraddress
+  [server-listen]: https://nodejs.org/docs/latest-v22.x/api/net.html#serverlistenoptions-callback
+  [socket-connect]: https://nodejs.org/docs/latest-v22.x/api/net.html#socketconnectoptions-connectlistener
