@@ -2,7 +2,7 @@
 
 SoupBinTCP implements NASDAQ SoupBinTCP 3.00 client and server on Node.
 
-SoupBinTCP requires Node 18 or newer.
+SoupBinTCP requires Node 22 or newer.
 
 ## Install
 
